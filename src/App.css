@@ -1,0 +1,12 @@
+*{
+  color: black;
+  margin: 0px;
+}
+
+a{
+  text-decoration: none;
+}
+
+ul li{
+  list-style: none;
+}
