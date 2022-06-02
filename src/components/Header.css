@@ -1,0 +1,67 @@
+
+a{
+    text-decoration: none;
+    list-style: none;
+    color:black;
+}
+
+.icons.a:hover{
+    color: black;
+    background-color: green;
+}
+
+header{   
+    background: #00c6ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-bottom: 12px;
+    border-radius: 5px;
+    color: white;
+}
+
+header .home{
+    padding: 10px;
+}
+
+header input{
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #ccc;
+}
+
+header .search-input{
+    padding: 10px;
+}
+
+
+header .logo{
+    margin-left: 20px;
+}
+
+h1{
+    color: white;
+}
+
+header .icons{
+    width: auto;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    justify-content: flex-end;
+    margin-left: 200px;
+}
+
+header .icons .notification-icon{
+    margin: 0 25px 0 25px;
+}
+
+.icons{
+    display: flex;
+    padding: 20px;
+    font-size: 2rem;
+}
