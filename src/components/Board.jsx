@@ -1,24 +1,13 @@
 import './Board.css'
-import  Sticky from './Sticky'
-import Report from './Report'
+import Report from './Services'
 import React from 'react'
-
 import {Switch, Route} from 'react-router-dom'
+import Homecarousel from './Homecarousel'
 
-function content(){
-    return ([<p>task1</p>, <p>task2</p>,<p>task3</p>,])
-}
-
-function Board() {
+function Board(props) {
     return (
         <section className='container'>
             <div className='board'>
-                <div className='title'> 
-                    <i className="bi bi-clipboard"></i>
-                        My Board
-                </div>
-
-                <div className='stiky-notes-container'>
                     <Switch>
 
                        <Route path='/report' exact>
@@ -26,23 +15,9 @@ function Board() {
                         </Route>
                         
                         <Route path='' exact>
-                            <Sticky header='Items' content={content()}
-                                leftArrow=''
-                                rigthArrow='bi bi-arrow-bar-right'
-                                />
-
-                            <Sticky header = 'Doing' content={content()}
-                                    rigthArrow='bi bi-arrow-bar-right'
-                                    leftArrow='bi bi-arrow-bar-left'
-                                />
-                            
-                            <Sticky header = 'Done'  content={content()}
-                                leftArrow='bi bi-arrow-bar-left'
-                                rigthArrow=''
-                            />
+                            <Homecarousel/>
                         </Route>                        
                     </Switch>
-                </div>
             </div>
         </section>
 

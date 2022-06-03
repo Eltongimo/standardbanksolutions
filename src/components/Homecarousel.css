@@ -1,0 +1,5 @@
+.carousel-container{
+    border: solid #ccc 2px;
+    justify-items: center;
+    height: 100%;
+}

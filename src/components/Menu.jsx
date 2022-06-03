@@ -9,11 +9,11 @@ function Menu() {
                 <ul>
                     <li>
                         <Link to="/" exact="true"> 
-                            Home
+                            Inicio
                         </Link></li>
                     <li>
                         <Link to="/report" exact="true">
-                            Tasks   
+                            Serviços   
                         </Link>
                     </li>
                 </ul>

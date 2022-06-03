@@ -15,7 +15,7 @@ function Header() {
                     </div>    
                </div>
                <div className='logo'>
-                    <h1>TMS</h1>
+                    <h1>Meu Standard Bank Moçambique</h1>
                </div>
                <div className='icons'>
                     <div className='information-icon'>
