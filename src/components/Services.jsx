@@ -2,8 +2,6 @@ import './Services.css'
 import React from 'react'
 import Card from './Card'
 
-
-
 function Services() {  
     return (
         <div className='table-container'>

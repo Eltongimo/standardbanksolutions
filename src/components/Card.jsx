@@ -11,8 +11,10 @@ function Card(props){
                 {props.serviceDescription}
             </div>
             <div className='content-button'>
-                Botão de Acção
-           </div>
+                <button className='request-button'>
+                    solicitar senha
+                </button>
+            </div>
         </div>
     )
 }
