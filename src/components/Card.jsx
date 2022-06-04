@@ -37,6 +37,12 @@ function Card(props){
                         >
                         <form className='form-container' onSubmit={handleSubmit(onSubmit)}>
                       
+                            <div className='form-header'>
+                                <div>
+                                    Formulario de preenchimento de dados
+                                </div>
+                            </div>
+
                             <div className="form-body">
                                 <label> 
                                     <div className='txt'>
@@ -49,28 +55,48 @@ function Card(props){
                                 
                                 <label> 
                                     <div className='txt'>
-                                        Nome
+                                        BI
                                     </div> 
                                     <div className="subject">
-                                        <input type="text" name="name" placeholder="Por favor insira o seu nome completo" />
+                                        <input type="text" name="name" placeholder="Por favor insira o numero do seu BI" />
+                                    </div>
+                                </label>
+                                
+                                <label> 
+                                    <div className='txt'>
+                                        Numero
+                                    </div> 
+                                    <div className="subject">
+                                        <input type="text" name="name" placeholder="Por favor insira o numero do seu celular" />
                                     </div>
                                 </label>
                                 
                                 
-                                <div className="subject">
-                                    <input type="text" name="name" placeholder="Por favor insira o seu nome completo" />
-                                </div>
-
-                                <div className="subject">
-                                    <input type="text" name="name" placeholder="Por favor insira o seu nome completo" />
-                                </div>
+                                <label> 
+                                    <div className='txt-select'>
+                                        Agencia 
+                                    </div> 
     
-                                <select>
-                                    <option>option 1</option>
-                                    <option>option 1</option>
-                                    <option>option 1</option>
-                                    <option>option 1</option>
-                                </select>
+                                    <select>
+                                        <option>Agencia 1</option>
+                                        <option>Agencia 2</option>
+                                        <option>Agencia 3</option>
+                                        <option>Agencia 4</option>
+                                    </select>
+
+                                </label>
+                                
+                                <label> 
+                                    <div className='txt-select'>
+                                        Serviços 
+                                    </div> 
+    
+                                    <select>
+                                        <option>Deposito / Levantamento</option>
+                                        <option>Atendimento Geral</option>
+                                    </select>
+
+                                </label>
 
                             </div>
                     
