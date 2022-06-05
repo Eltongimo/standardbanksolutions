@@ -1,5 +1,6 @@
-.carousel-container{
-    border: solid #ccc 2px;
-    justify-items: center;
-    height: 100%;
+.form-header{
+    font-size: 25px;
+    font-weight:600;
+    border-bottom: #ccc solid 0.1px;
+    text-align: left;
 }

@@ -2,7 +2,6 @@ import './Card.css'
 import React from 'react'
 import Modal from 'react-modal'
 import {useState} from 'react'
-import axios from 'axios'
 
 function Card(props){
     
@@ -14,11 +13,9 @@ function Card(props){
         service: '',
         branch: ''
     })
-    
-    const onSubmit = (data) => {
-        console.log(data)
-    }
 
+    const [sucessModal, setSucessModal] =useState(false)
+    
     const handleNameChange = (event) => {
         setShowModalForm({
             name: event.target.value,
@@ -88,20 +85,23 @@ function Card(props){
             branch: showModalForm.branch,
             modal: false
         })
+      
+        setSucessModal(true)
 
-        console.log(showModalForm)
-        
+        /*
         axios.post('https://localhost:3001/clients',showModalForm)
         .then( res => {
             console.log(res.data)
             console.log(res)
         })
 
-        
+        */
+
     }
 
     return (
         <div className='sticky-notes'>
+
             <div className='note-header'>
                 {props.service}
             </div>        
@@ -109,7 +109,7 @@ function Card(props){
                 {props.serviceDescription}
             </div>
             <div className='content-button'>
-                <button className='request-button'
+                <button className='btn btn-outline-dark'
                  onClick={() => setShowModalForm({modal:true, 
                                                   name: showModalForm.name, 
                                                   id: showModalForm.id,
@@ -117,7 +117,7 @@ function Card(props){
                                                   service: showModalForm.service,
                                                   branch: showModalForm.branch             
                                                   })}>
-                    solicitar senha
+                    Solicitar Senha para a fila
                 </button>
 
                 <Modal  className='modal-container' isOpen={showModalForm.modal}
@@ -137,7 +137,7 @@ function Card(props){
                                     } 
                             }
                         >
-                        <form className='form-container' onSubmit={onSubmit}>
+                        <form className='form-container'>
                       
                             <div className='form-header'>
                                 <div>
@@ -160,7 +160,7 @@ function Card(props){
                                         BI
                                     </div> 
                                     <div className="subject">
-                                        <input type="text" onChange={handleIdChange} value={showModalForm.id}  placeholder="Por favor insira o numero do seu BI" />
+                                        <input type="text" onChange={handleIdChange} value={showModalForm.id}  placeholder="Por favor insira o numero do seu BI" required/>
                                     </div>
                                 </label>
                                 
@@ -169,7 +169,7 @@ function Card(props){
                                         Numero
                                     </div> 
                                     <div className="subject">
-                                        <input type="text" onChange={handleNumberChange}name="name" placeholder="Por favor insira o numero do seu celular" />
+                                        <input type="text" onChange={handleNumberChange}name="name" placeholder="Por favor insira o numero do seu celular" required/>
                                     </div>
                                 </label>
 
@@ -207,12 +207,73 @@ function Card(props){
                                 </div>
                             </div>
                         </form>
-                    
                 </Modal>
-            </div>
 
+                <div className='sucess-container'>
+                    <Modal  className='modal-container-sucess' isOpen={sucessModal} 
+                                                onRequestClose={() => setSucessModal(false) }
+                                                style={{overlay:{backgroundColor: 'rgb(204, 204, 204,0.9)'}}}>
+                            <div className='sucess-header'>
+                                    Sucesso
+                            </div>
+                            <div className='sucess-body'>
+                                    <div className='field-content'>
+                                        <div className='body-field1'>
+                                            Nome
+                                        </div>
+                                        <div className='body-field2'>
+                                            {showModalForm.name}
+                                        </div>
+                                    </div>
+                                    
+                                    <div className='field-content'>
+                                        
+                                        <div className='body-field1'>
+                                            BI
+                                        </div>
+                                        <div className='body-field2'>
+                                            {showModalForm.id} 
+                                        </div>
+                                    </div>
+
+                                    <div className='field-content'>
+                                        <div className='body-field1'>
+                                            Numero
+                                        </div>
+                                        <div className='body-field2'>
+                                            {showModalForm.number} 
+                                        </div>
+                                    </div>
+                                    
+                                    <div className='field-content'>
+                                        <div className='body-field1'>
+                                            Agencia
+                                        </div>
+                                        
+                                        <div className='body-field2'>
+                                            {showModalForm.branch} 
+                                        </div>
+                                    </div>
+                                    
+                                    <div className='field-content'>
+                                        <div className='body-field1'>
+                                            Numero da Senha
+                                        </div>
+                                        <div className='body-field2'>
+                                            {Math.floor(Math.random() * 100 )}
+                                        </div>
+                                    </div>
+                                    
+                            </div>
+
+                            <div className='sucess-footer'>
+                                <button type='submit'className='btn btn-danger' onClick= { ()=> setSucessModal(false)}>Fechar</button>
+                            </div>
+                    </Modal>
+                </div>
+            </div>
         </div>
-    )
+   )
 }
 export default Card
    

@@ -12,8 +12,14 @@ function Menu() {
                             Inicio
                         </Link></li>
                     <li>
-                        <Link to="/report" exact="true">
+                        <Link to="/servicos" exact="true">
                             Serviços   
+                        </Link>
+                    </li>
+
+                    <li>
+                    <Link to="/clients" exact="true">
+                            Clientes 
                         </Link>
                     </li>
                 </ul>
