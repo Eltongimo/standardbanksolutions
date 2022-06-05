@@ -1,15 +1,103 @@
 import './Card.css'
 import React from 'react'
 import Modal from 'react-modal'
-import {useForm} from 'react-hook-form'
+import {useState} from 'react'
+import axios from 'axios'
 
 function Card(props){
     
-    const [showModalForm, setShowModalForm] = React.useState(false)
-    const {register, handleSubmit} = useForm() 
+    const [showModalForm, setShowModalForm] = useState({
+        modal: false,
+        name: '',
+        id: '',
+        number: '',
+        service: '',
+        branch: ''
+    })
     
     const onSubmit = (data) => {
         console.log(data)
+    }
+
+    const handleNameChange = (event) => {
+        setShowModalForm({
+            name: event.target.value,
+            id: showModalForm.id,
+            number: showModalForm.number,
+            service: showModalForm.service,
+            branch: showModalForm.branch,
+            modal: showModalForm.modal
+        })
+    }
+
+    const handleIdChange = (event) => {
+        setShowModalForm({
+            name: showModalForm.name,
+            id: event.target.value,
+            number: showModalForm.number,
+            service: showModalForm.service,
+            branch: showModalForm.branch,
+            modal: showModalForm.modal
+        })
+    }
+
+    const handleServiceChange = (event) => {
+     
+        setShowModalForm({
+            name: showModalForm.name,
+            id: showModalForm.id,
+            number: showModalForm.number,
+            service: event.target.value,
+            branch: showModalForm.branch,
+            modal: showModalForm.modal
+        })
+        console.log(showModalForm)
+    }
+
+    
+    const handleBranchChange = (event) => {
+        console.log(event.target.value)
+        setShowModalForm({
+            name: showModalForm.name,
+            id: showModalForm.id,
+            number: showModalForm.number,
+            service: showModalForm.service,
+            branch: event.target.value,
+            modal: showModalForm.modal
+        })
+        console.log(showModalForm)
+    }
+
+    const handleNumberChange = (event) => {
+        setShowModalForm({
+            name: showModalForm.name,
+            id: showModalForm.id,
+            number: event.target.value,
+            service: showModalForm.service,
+            branch: showModalForm.branch,
+            modal: showModalForm.modal
+        })
+    }
+
+    const handleSubmit = (event) => {
+        setShowModalForm({
+            name: showModalForm.name,
+            id: showModalForm.id,
+            number: showModalForm.number,
+            service: showModalForm.service,
+            branch: showModalForm.branch,
+            modal: false
+        })
+
+        console.log(showModalForm)
+        
+        axios.post('https://localhost:3001/clients',showModalForm)
+        .then( res => {
+            console.log(res.data)
+            console.log(res)
+        })
+
+        
     }
 
     return (
@@ -21,12 +109,26 @@ function Card(props){
                 {props.serviceDescription}
             </div>
             <div className='content-button'>
-                <button className='request-button' onClick={() => setShowModalForm(true)}>
+                <button className='request-button'
+                 onClick={() => setShowModalForm({modal:true, 
+                                                  name: showModalForm.name, 
+                                                  id: showModalForm.id,
+                                                  number: showModalForm.number,
+                                                  service: showModalForm.service,
+                                                  branch: showModalForm.branch             
+                                                  })}>
                     solicitar senha
                 </button>
 
-                <Modal  className='modal-container' isOpen={showModalForm}
-                              onRequestClose={() => setShowModalForm(false)}
+                <Modal  className='modal-container' isOpen={showModalForm.modal}
+                              onRequestClose={() => setShowModalForm({
+                                                    modal:false,
+                                                    name: '', 
+                                                    id: '',
+                                                    number: '',
+                                                    service: '',
+                                                    branch: ''
+                                                    })}
                               style={
                                     {
                                         overlay:{
@@ -35,7 +137,7 @@ function Card(props){
                                     } 
                             }
                         >
-                        <form className='form-container' onSubmit={handleSubmit(onSubmit)}>
+                        <form className='form-container' onSubmit={onSubmit}>
                       
                             <div className='form-header'>
                                 <div>
@@ -49,7 +151,7 @@ function Card(props){
                                         Nome
                                     </div> 
                                     <div className="subject">
-                                        <input type="text" name="name" placeholder="Por favor insira o seu nome completo" />
+                                        <input type="text" value={showModalForm.name} onChange={handleNameChange} placeholder="Por favor insira o seu nome completo" />
                                     </div>
                                 </label>
                                 
@@ -58,7 +160,7 @@ function Card(props){
                                         BI
                                     </div> 
                                     <div className="subject">
-                                        <input type="text" name="name" placeholder="Por favor insira o numero do seu BI" />
+                                        <input type="text" onChange={handleIdChange} value={showModalForm.id}  placeholder="Por favor insira o numero do seu BI" />
                                     </div>
                                 </label>
                                 
@@ -67,17 +169,16 @@ function Card(props){
                                         Numero
                                     </div> 
                                     <div className="subject">
-                                        <input type="text" name="name" placeholder="Por favor insira o numero do seu celular" />
+                                        <input type="text" onChange={handleNumberChange}name="name" placeholder="Por favor insira o numero do seu celular" />
                                     </div>
                                 </label>
-                                
-                                
+
                                 <label> 
                                     <div className='txt-select'>
                                         Agencia 
                                     </div> 
     
-                                    <select>
+                                    <select value={showModalForm.branch} onChange={handleBranchChange}>
                                         <option>Agencia 1</option>
                                         <option>Agencia 2</option>
                                         <option>Agencia 3</option>
@@ -91,7 +192,7 @@ function Card(props){
                                         Serviços 
                                     </div> 
     
-                                    <select>
+                                    <select value={showModalForm.service} onChange={handleServiceChange}>
                                         <option>Deposito / Levantamento</option>
                                         <option>Atendimento Geral</option>
                                     </select>
@@ -102,7 +203,7 @@ function Card(props){
                     
                             <div className='modal-form-footer'>
                                 <div className='footer-btn'>
-                                    <button className='btn btn-success' onClick= {() => setShowModalForm(false)}>Submit</button>
+                                    <button type='submit'className='btn btn-success' onClick= {handleSubmit}>Submeter</button>
                                 </div>
                             </div>
                         </form>
