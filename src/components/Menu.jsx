@@ -12,14 +12,20 @@ function Menu() {
                             Inicio
                         </Link></li>
                     <li>
-                        <Link to="/servicos" exact="true">
-                            Serviços   
+                        <Link to="/projectos" exact="true">
+                            Projectos   
                         </Link>
                     </li>
 
                     <li>
-                    <Link to="/clients" exact="true">
-                            Clientes 
+                    <Link to="/actividades" exact="true">
+                            Actividades 
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link to="/relatorios">
+                            Relatorios
                         </Link>
                     </li>
                 </ul>
