@@ -1,0 +1,6 @@
+.actividades-body{
+    display:flex;
+    height: 100%;
+    border: solid #ccc 2px;
+
+}

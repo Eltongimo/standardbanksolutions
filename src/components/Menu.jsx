@@ -12,11 +12,15 @@ function Menu() {
                             Inicio
                         </Link></li>
                     <li>
-                        <Link to="/projectos" exact="true">
-                            Projectos   
+                        <Link to='/productos'>
+                            Productos
                         </Link>
                     </li>
-
+                    <li>
+                        <Link to='/macroactividades'>
+                            Macro Actividades                        
+                        </Link>
+                    </li>
                     <li>
                     <Link to="/actividades" exact="true">
                             Actividades 
@@ -24,7 +28,7 @@ function Menu() {
                     </li>
 
                     <li>
-                        <Link to="/relatorios">
+                        <Link to="/relatorios" exact="true">
                             Relatorios
                         </Link>
                     </li>
