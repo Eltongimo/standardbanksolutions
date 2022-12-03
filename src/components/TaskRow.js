@@ -1,30 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './TaskRow.css'
 
-function TaskRow(props){
+function TaskRow(props){    
+
+    const [rows, setRows ] = useState([])
+    
     return (
-        <div className='rows-report'>
+
+        rows.map((item,index) => {
+            <div className='rows-report'>
             <div className='colmns-report'>
                 <ul >
                     <li>
-                        {props.name}
+                        {item.Name}
                     </li>
                     <li>
-                        {props.status}
+                        {item.Area}
                     </li>
                     <li>
-                        {props.startDate}
-                    </li>
-                    <li>
-                        {props.endDate}
-                    </li>
-                    <li>
-                        {props.performance}
+                        {item.status}
                     </li>
                 </ul>
             </div>
         </div>
+        })
     )
 }
-
 export default TaskRow
