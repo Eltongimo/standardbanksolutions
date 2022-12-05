@@ -6,22 +6,26 @@ import './Report.css'
 import Productos from './Productos'
 import MacroActividades from './MacroActividades'
 import Reports from './Reports'
+import Example from './Charts'
 
 function Board(props){
     return (
         <section className='container'>
             <div className='board'>
                 <Switch>
-                    <Route to='/productos'>
+                    <Route to='/' >
+                        <Example />
+                    </Route>
+                    <Route to='/productos' exact>
                         <Productos/>
                     </Route>
-                    <Route to='/macroactividades' exact>
+                    <Route to='/macroactividades' >
                         <MacroActividades/>
                     </Route>
-                    <Route to='/actividades' exact>
+                    <Route to='/actividades' >
                         <Actividades/>
                     </Route>
-                    <Route to='relatorios' exact>
+                    <Route to='relatorios' >
                         <Reports/>
                     </Route>
                 </Switch>

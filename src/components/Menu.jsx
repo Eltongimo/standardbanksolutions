@@ -10,7 +10,8 @@ function Menu() {
                     <li>
                         <Link to="/" exact="true"> 
                             Inicio
-                        </Link></li>
+                        </Link>
+                      </li>
                     <li>
                         <Link to='/productos'>
                             Productos

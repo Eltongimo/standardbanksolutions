@@ -7,7 +7,7 @@ function Actividades(){
     /* Get The activities from DB and populate on to the List */
 
 
-    <div class="actividades-body">
+    <div className="actividades-body">
         <label>
             <ul>
                 <li>

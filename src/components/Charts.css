@@ -1,0 +1,9 @@
+.charts-container{
+    display: flex;
+    height: 26rem;
+}
+
+.charts-header{
+    display: flex;
+    border: solid #ccc 2px;
+}

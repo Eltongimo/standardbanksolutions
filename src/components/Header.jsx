@@ -6,12 +6,12 @@ function Header() {
                <header className='header'>
                <div className="home">
                     <a href='/'>
-                         <i class="bi bi-house-door-fill" style={{'cursor':'pointer','fontSize': '2rem', 'color': 'white'}}></i>
+                         <i className="bi bi-house-door-fill" style={{'cursor':'pointer','fontSize': '2rem', 'color': 'white'}}></i>
                     </a>
                </div>
                <div className='search-input'>
-                    <div class="form-outline">
-                         <input type="search" id="form1" class="form-control" placeholder="Search..."/>
+                    <div className="form-outline">
+                         <input type="search" id="form1" className="form-control" placeholder="Search..."/>
                     </div>    
                </div>
                <div className='logo'>
@@ -20,7 +20,7 @@ function Header() {
                <div className='icons'>
                     <div className='information-icon'>
                          <a href='/notification'>
-                              <i class="bi bi-info-circle-fill"
+                              <i className="bi bi-info-circle-fill"
                               style={{'cursor':'pointer','fontSize': '2rem', 'color': 'white'}}
                               ></i>  
                          </a>
@@ -28,7 +28,7 @@ function Header() {
 
                     <div className='notification-icon'>
                          <a href='/notification'>
-                              <i class="bi bi-bell-fill"
+                              <i className="bi bi-bell-fill"
                               style={{'cursor':'pointer','fontSize': '2rem', 'color': 'white'}}
                               ></i>     
                          </a>
@@ -36,7 +36,7 @@ function Header() {
 
                     <div className='account-icon'>
                          <a href='/account'>
-                              <i class="bi bi-person-fill"
+                              <i className="bi bi-person-fill"
                               style={{'cursor':'pointer','fontSize': '2rem', 'color': 'white'}}
                               ></i>    
                          </a>
